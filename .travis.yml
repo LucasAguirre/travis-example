@@ -15,7 +15,9 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 before_script:
+  - cp .env.travis .env
   - psql -c 'create database testDB;' -U postgres
+  - php artisan migrate
 
 script:
   - ./vendor/bin/phpunit --coverage-clover clover.xml
