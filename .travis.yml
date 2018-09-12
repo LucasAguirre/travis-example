@@ -15,7 +15,7 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 before_script:
-  - psql -c 'create database testDB;' -U postgres
+  - psql -c 'create database test;' -U postgres
   - cp .env.travis .env
   - php artisan migrate
 
